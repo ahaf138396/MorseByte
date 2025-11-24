@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MorseByte</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-bar">
+      <div class="brand">
+        <div class="logo">\u2022\u2022\u2014</div>
+        <div>
+          <h1>MorseByte</h1>
+          <p>Offline Morse & Binary Studio</p>
+        </div>
+      </div>
+      <div class="controls">
+        <label class="mode-select">
+          <span>Mode</span>
+          <select id="mode">
+            <option value="text-to-morse">Text → Morse</option>
+            <option value="morse-to-text">Morse → Text</option>
+            <option value="text-to-binary">Text → Binary</option>
+            <option value="binary-to-text">Binary → Text</option>
+          </select>
+        </label>
+        <label class="mode-select">
+          <span>Encoding</span>
+          <select id="encoding">
+            <option value="utf-8">UTF-8</option>
+            <option value="ascii">ASCII</option>
+          </select>
+        </label>
+        <button id="theme-toggle" class="ghost-btn" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Input</h2>
+          <div class="panel-actions">
+            <button id="paste" class="ghost-btn">Paste</button>
+            <button id="clear" class="ghost-btn">Clear</button>
+          </div>
+        </div>
+        <textarea id="input" placeholder="Type or paste here..." autofocus></textarea>
+        <div class="panel-footer">
+          <span class="hint">Live conversion enabled. Use Convert for manual refresh.</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Output</h2>
+          <div class="panel-actions">
+            <button id="copy" class="ghost-btn">Copy</button>
+            <button id="save" class="ghost-btn">Export .txt</button>
+          </div>
+        </div>
+        <textarea id="output" placeholder="Output will appear here..." readonly></textarea>
+        <div class="panel-footer status" id="status">Ready.</div>
+      </section>
+    </main>
+
+    <footer class="toolbar">
+      <button id="convert" class="primary-btn">Convert</button>
+      <div class="legend">
+        <span><strong>Morse:</strong> Letters separated by spaces, words by /</span>
+        <span><strong>Binary:</strong> 8-bit chunks separated by spaces</span>
+      </div>
+    </footer>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
